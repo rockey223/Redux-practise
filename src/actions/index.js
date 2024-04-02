@@ -10,15 +10,19 @@ export const decNum = () => {
     type: "decrease",
   };
 };
-export const getData = () => {
+
+export const getData = (id) => {
   return (dispatch) => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get(`https://icanhazdadjoke.com/`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
       .then((res) => {
-        
         dispatch({
           type: "getdata",
-          payload: res.data
+          payload: res.data,
         });
       })
       .catch((err) => {
